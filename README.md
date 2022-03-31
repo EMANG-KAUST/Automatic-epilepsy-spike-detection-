@@ -20,7 +20,7 @@
 
 Algorithm diagram            |  Sample Epilepsy Spikes
 :-------------------------:|:-------------------------:
-![1](https://github.com/EMANG-KAUST/CentralPressure_PPG/blob/main/img/51.png)  |  ![2](https://github.com/EMANG-KAUST/CentralPressure_PPG/blob/main/img/1.gif)
+![1](https://github.com/EMANG-KAUST/Automatic-epilepsy-spike-detection-/blob/main/img/1.png)  |  ![2](https://github.com/EMANG-KAUST/Automatic-epilepsy-spike-detection-/blob/main/img/2.png)
 
 
 ## Dataset
