@@ -1,5 +1,5 @@
 
-<h1 align="center">Cuffless Blood Pressure Estimation Algorithm Built on <a href="https://link.springer.com/article/10.1007/s00498-012-0091-1" target="_blank">SCSA</a></h1>
+<h1 align="center">Automatic Epilepsy Spike Detection</h1>
 
 <p align="center">
   <a href="https://ieeexplore.ieee.org/document/9374974">
@@ -18,24 +18,32 @@
   <a href="#license">License</a>
 </p>
 
-Algorithm diagram            |  Real-time implementation
+Algorithm diagram            |  Sample Epilepsy Spikes
 :-------------------------:|:-------------------------:
 ![1](https://github.com/EMANG-KAUST/CentralPressure_PPG/blob/main/img/51.png)  |  ![2](https://github.com/EMANG-KAUST/CentralPressure_PPG/blob/main/img/1.gif)
 
 
 ## Dataset
-The Physionet’s <a href="https://archive.physionet.org/mimic2/" target="_blank">Multiparameter Intelligent Monitoring in Intensive Care (MIMIC II)</a> online waveform database is used for accuracy analysis.
- 
-* The data set is in matlab's v7.3 mat file, accordingly it should be opened using new versions of matlab or HDF libraries in other environments (Please refer to <a href="https://archive.ics.uci.edu/ml/datasets/Cuff-Less+Blood+Pressure+Estimation">this site</a> for more information about this format)
-* This database consist of a cell array of matrices, each cell is one record part. In each matrix each row corresponds to one signal channel:
-  - PPG signal, FS=125Hz; photoplethysmograph from fingertip 
-  - ABP signal, FS=125Hz; invasive arterial blood pressure (mmHg) 
-  - ECG signal, FS=125Hz; electrocardiogram from channel II
-* Number of Patients: 12000
-* Associated Tasks: Blood pressure regression
-* Sampling Frequency: 125Hz
-* Precision: 8 bits
-* Citation Source: If you use this dataset, please refer [this paper](https://www.semanticscholar.org/paper/Cuff-less-high-accuracy-calibration-free-blood-time-Kachuee-Kiani/756f12f5495be3717a691a6073642733f6b1a8a3)
+Project team is currently considering the [UCI machine learning repository](https://archive.ics.uci.edu/ml/index.php), once dataset is uploaded users can export MEG/EEG data from the updated link. Each patient data contains the following elements.
+- `data` (A Matrix element with each row containing waveform of a specific channel. )
+- `events` (A struct element with *M* spike label imformation)
+                                                                            
+    Field | Data Types    | Value
+    ----  | ----------------- | ----------
+    label  | string | "spikes"
+    times  | array (double)| M doubles
+    samples  | array (double) | M doubles
+                                                                            
+- `smpfreq` (A integer element with sampling frequency)
+- `chantype` (An array element with each array element showing data type of the corresponding row in *data* element)
+- `channame` (An array element with each array eleemnt showing channel type of the corresponding type in *chantype* elements)
+    > Note: For EEG data, the channel waveform is 
+    the difference of voltage between the *electrode* 
+    and the *ground*, with the type of electrode shown 
+    in *channame* variable. EEG waveform can be generated 
+    by substracting two data waveforms thus eliminating 
+    the ground voltage. More basics about EEG signal can be 
+    found in this [tutorial](https://www.youtube.com/watch?v=XMizSSOejg0).
 
 ## Environment
 
