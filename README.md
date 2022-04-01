@@ -59,9 +59,32 @@ This application can be downloaded by built-in [git](https://www.mathworks.com/h
 
 ## How to Run
 
-The application provides interfaces which can help researchers to extract feature vectors using SCSA method. Network training and prediction interfaces are also provided.
+The repo provides a wide variety of methods and utilities which can help researchers to study epilepsy spike detection methods. Both detection methods and feature extraction methods in existing literature publications are provided.
+### Table of content
+              
+- [Our method](#-our-method)
+    - [Pre-defined system parameters](#-pre-defined-system-parameters)
+    - [Automatic detection function and utilities](#-automatic-detection-function-and-utilities)
 
-### Extract SCSA feature set 
+### Our method 
+#### Pre-defined system parameters
+
+Parameter Description | Variable Location    | Variable Name
+----  | ----------------- | ----------
+label  | string | "spikes"
+times  | array (double)| M doubles
+samples  | array (double) | M doubles
+samples  | array (double) | M doubles
+samples  | array (double) | M doubles
+samples  | array (double) | M doubles
+samples  | array (double) | M doubles
+samples  | array (double) | M doubles
+samples  | array (double) | M doubles
+samples  | array (double) | M doubles
+samples  | array (double) | M doubles
+samples  | array (double) | M doubles
+
+#### Automatic detection function and utilities
 You can extract a SCSA feature vector from a certain PPG segment (i.e. a heart beat interval) with the following command.
 ```matlab
 [featureS] = SegmentExtract(PPGSegment)
