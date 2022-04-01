@@ -6,7 +6,8 @@
     <img src="https://img.shields.io/badge/paper-IEEE%20Access-brightgreen">
   </a>  <a href="https://ieeexplore.ieee.org/abstract/document/9631028">
     <img src="https://img.shields.io/badge/paper-EMBC2021-orange">
-  </a>
+</a>   <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">
+<img src="https://img.shields.io/badge/license-GPL--3.0--or--later-blue">
   </a>  
 </p>
 
