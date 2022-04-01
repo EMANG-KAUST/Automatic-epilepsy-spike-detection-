@@ -62,9 +62,10 @@ This application can be downloaded by built-in [git](https://www.mathworks.com/h
 The repo provides a wide variety of methods and utilities which can help researchers to study epilepsy spike detection methods. Both detection methods and feature extraction methods in existing literature publications are provided.
 ### Table of content
               
-- [Our method](#-our-method)
-    - [Pre-defined system parameters](#-pre-defined-system-parameters)
-    - [Automatic detection function and utilities](#-automatic-detection-function-and-utilities)
+- Our method
+    - Pre-defined system parameters
+    - Automatic detection function 
+    - Utilities
 
 ### Our method 
 #### Pre-defined system parameters
