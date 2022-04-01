@@ -4,8 +4,8 @@
 <p align="center">
   <a href="https://ieeexplore.ieee.org/document/9374974">
     <img src="https://img.shields.io/badge/paper-IEEE%20Access-brightgreen">
-  </a>  <a href="https://ieeexplore.ieee.org/document/9176849">
-    <img src="https://img.shields.io/badge/paper-EMBC2020-orange">
+  </a>  <a href="https://ieeexplore.ieee.org/abstract/document/9631028">
+    <img src="https://img.shields.io/badge/paper-EMBC2021-orange">
   </a>
   </a>  
 </p>
@@ -47,10 +47,10 @@ Project team is currently considering the [UCI machine learning repository](http
 
 ## Environment
 
-The original source is developed in Matlab 2016a. An equaling or higher version is recommended. This application uses the following Matlab toolbox:
+Our application is developed in Matlab 2020a. An equaling or higher version is recommended and no other dependencies are needed to implement our method. To implement other methods and utilities, it is recommended to install the following Matlab toolbox:
 
 - [Signal Processing Toolbox](https://www.mathworks.com/products/signal.html)
-- [Deep Learning Toolbox](https://www.mathworks.com/products/deep-learning.html)
+- [Statistics and Machine Learning Toolbox](https://www.mathworks.com/products/deep-learning.html)
 ## Download
 
 This application can be downloaded by built-in [git](https://www.mathworks.com/help/matlab/matlab_prog/set-up-git-source-control.html) tool in Matlab.
