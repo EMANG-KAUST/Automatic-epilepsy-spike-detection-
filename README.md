@@ -68,7 +68,7 @@ The repo provides a wide variety of methods and utilities which can help researc
     - Utilities
 
 ### Our method 
-This section provides implementation of algorithm 3 in our paper. Both pre-defined system parameters and automatic detection function and utilities are described. The first subsection is listed for research purposes with some system parameters shown in variable location and variable name for easier tunning process. Then usages of automatic detection function and utilities are covered for implementations.
+Both pre-defined system parameters and automatic detection function and utilities are described. The first subsection is listed for research purposes with some system parameters shown in variable location and variable name for easier tunning process. Then usages of automatic detection function and utilities are covered for implementations.
 #### Pre-defined system parameters
 Parameter Description | Variable Location    | Variable Name
 ----  | ----------------- | ----------
@@ -83,10 +83,12 @@ SCSA *C_1 , C_2* conditions thesholds  | /functions/main/SCSASpikeDetect.m | Ts1
 maximum sample length in a region |- | -
 
 #### Automatic detection function and utilities
-You can extract a SCSA feature vector from a certain PPG segment (i.e. a heart beat interval) with the following command.
+This section provides implementation of **algorithm 3** in our paper. You can get extracted regions *R_F* from an input MEG/EEG patient data D (D is matrix with each row containing channel waveforms) simply by running the following command.
 ```matlab
-[featureS] = SegmentExtract(PPGSegment)
+[R_F] = esRegionsExtract(D)
 ```
+
+#### Utilities
 ### Train feed-forward neural network (FFNN)
 The application utilizes a FFNN structure for SBP and DBP estimation.
 ![screenshot2](https://github.com/EMANG-KAUST/CentralPressure_PPG/blob/main/img/ffnn1.png)
