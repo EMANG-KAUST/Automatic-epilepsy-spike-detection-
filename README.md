@@ -68,7 +68,7 @@ The repo provides a wide variety of methods and utilities which can help researc
     - Utilities
 
 ### Our method 
-Both pre-defined system parameters and automatic detection function and utilities are described. The first subsection is listed for research purposes with some system parameters shown in variable location and variable name for easier tunning process. Then usages of automatic detection function and utilities are covered for implementations.
+Both pre-defined system parameters and automatic detection function and utilities are described. The first subsection is listed for research purposes with some system parameters shown in variable location and variable name allowing easier tunning process. Then usages of automatic detection function and utilities are covered for implementations.
 #### Pre-defined system parameters
 Parameter Description | Variable Location    | Variable Name
 ----  | ----------------- | ----------
@@ -80,7 +80,8 @@ exponential search base number   | /functions/main/StateTrans.m| searchD
 number of linear scanning intervals  | /functions/main/StateTrans.m | IndMax
 ratio value for judging *C_1, C_2* conditions | /functions/main/SCSASpikeDetect.m| ThK, ThN
 SCSA *C_1 , C_2* conditions thesholds  | /functions/main/SCSASpikeDetect.m | Ts1, Ts2
-maximum sample length in a region |- | -
+maximum sample length in a region |esRegionsExtract.m | NL
+number of channels in data |esRegionsExtract.m| chan_index
 
 #### Automatic detection function and utilities
 This section provides implementation of **algorithm 3** in our paper. You can get extracted regions *R_F* from an input MEG/EEG patient data D (D is matrix with each row containing channel waveforms) simply by running the following command.
@@ -103,29 +104,14 @@ To perform comparisons or the algorithm modules independently, use the following
 
 |     Utilities    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | :-----------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|  **`C-SCSA`**   | Our main C-SCSA implementation. It is the entry point into the denoising algorithm, capable of taking any noisy signal as input (signals with 300-10000 samples are recommended for computing time perspectives). To peform denoising, simply use `[ yscsa,mse,snr ,psnr] = SCSAden( yf,yf0,v )` **function Input**: `v` is a smoothness parameter related to eq. (11) in our [paper](https://ietresearch.onlinelibrary.wiley.com/doi/epdf/10.1049/sil2.12023). `yf` is the noisy signal and `yf0` is the clean signal, with possible values between (-5,5). `v` varies with input signal types, signal length and sampling frequencies.  **function Output**: `yscsa` is the denoised signal. `snr` and `mse` is the SNR and mean squared error (MSE) of the denoised signal for evaluation purposes. **In the case where clean signal is not available**, use `[ yscsa] = SCSAden( yf,yf,v )` to get the denoised signal.|
+|  **`FD`**   | Our main C-SCSA implementation. It is the entry point into the denoising algorithm, capable of taking any noisy signal as input (signals with 300-10000 samples are recommended for computing time perspectives). To peform denoising, simply use `[ yscsa,mse,snr ,psnr] = SCSAden( yf,yf0,v )` **function Input**: `v` is a smoothness parameter related to eq. (11) in our [paper](https://ietresearch.onlinelibrary.wiley.com/doi/epdf/10.1049/sil2.12023). `yf` is the noisy signal and `yf0` is the clean signal, with possible values between (-5,5). `v` varies with input signal types, signal length and sampling frequencies.  **function Output**: `yscsa` is the denoised signal. `snr` and `mse` is the SNR and mean squared error (MSE) of the denoised signal for evaluation purposes. **In the case where clean signal is not available**, use `[ yscsa] = SCSAden( yf,yf,v )` to get the denoised signal.|
 |  **`P-SCSA`**   | Usage to be updated soon!|
 |   `Fast`    | C-SCSA fast version. We are currenlty using _fminsearch_ to speed up the searching process in eq. (10) in our [paper](https://ietresearch.onlinelibrary.wiley.com/doi/epdf/10.1049/sil2.12023), which uses the simplex search method of [Lagarias et al](https://www.researchgate.net/publication/216301003_Convergence_Properties_of_the_Nelder--Mead_Simplex_Method_in_Low_Dimensions). This version is currently in the research process and not available in the repository. |
 |  `h_Select`   | Optimal `h` selection for denoising. This function is for testing purposes. Users will be able to extract the optimal `h` that bestly denoise a noisy signal `yf` by running:`[ de,h_optimal,snr ] = SCSA_H_Select( yf,yf0 )`. **function Input**:  `yf` is the noisy signal and `yf0` is the clean signal. **function Output**: `de` is the denoised signal. `h_optimal` is the `h` that provides the best denoising performance and `snr` is the highest SNR that SCSA method can achieve.                                                                                                                                                                                                                                                        |
 |  `Assembly`   | Denoise signal by separating whole signal into regions of interest and apply C-SCSA on each. This module is currently in its testing stages and is not available in the repository.                                                                                                                                                                                                                                                          |
 |  `Others`   | Other methods reconstruction are also available. [EMD-IT](https://www.sciencedirect.com/science/article/pii/S0165168414005027) can be implemented by `[ de,mse,snr ,psnr] = emd_den( yf,yf0,c,k)` and [wavelet denoising](https://www.sciencedirect.com/science/article/pii/S1051200405001703) can be implemented by `[de, mse,snr,psnr ] = wa( yf,yf0 )`                                                                                                                                                                                                                                                        |
 |   `SCSA`    | SCSA reconstruction. Users can decompose the signal with a positive `h` value, by `[yscsa,Nh,EigV,EigF] = scsa_build(h,y)`. **function Input**: `h` is a positive value, also known as the [SCSA](https://link.springer.com/content/pdf/10.1007/s00498-012-0091-1.pdf) semi-classical constant. It can be selected by [Quantum-based interval selection](https://ieeexplore.ieee.org/abstract/document/9287878). `y` is the input signal to be decomposed.  **function Output**: `yscsa` is the decomposed signal, `Nh` is the number of eigenfunctions. `EigV` is a matrix with eigenvalues on its diagonal (you can export the eigenvalues by `diag(EigV)`. `EigF` is the matrix of eigenfunctions. [UI interface](https://github.com/EMANG-KAUST/SCSA-reconstruction) of this tool is also available. |
-### Train feed-forward neural network (FFNN)
-The application utilizes a FFNN structure for SBP and DBP estimation.
-![screenshot2](https://github.com/EMANG-KAUST/CentralPressure_PPG/blob/main/img/ffnn1.png)
-Once feature sets are generated, with `size(Traindata)=length(featureVector),num(samples)`,`size(SBPTarget)=1,num(samples)`and `size(DBPTarget)=1,num(samples)`, you can train the neural network with the following command.
-```matlab
-[netS,netD] = ModelGen(Traindata,SBPTarget,DBPTarget)
-```
-### Predict BP with trained network
-With `netS` and `netD`, one can predict SBP and DBP by:
-```matlab
-[SBPestimate] = netS(featureS)
-```
-and
-```matlab
-[DBPestimate] = netD(featureS)
-```
+
 
 ### License
 
