@@ -68,22 +68,19 @@ The repo provides a wide variety of methods and utilities which can help researc
     - Utilities
 
 ### Our method 
+This section provides implementation of algorithm 3 in our paper. Both pre-defined system parameters and automatic detection function and utilities are described. The first subsection is listed for research purposes with some system parameters shown in variable location and variable name for easier tunning process. Then usages of automatic detection function and utilities are covered for implementations.
 #### Pre-defined system parameters
-
 Parameter Description | Variable Location    | Variable Name
 ----  | ----------------- | ----------
-label  | string | "spikes"
-times  | array (double)| M doubles
-samples  | array (double) | M doubles
-samples  | array (double) | M doubles
-samples  | array (double) | M doubles
-samples  | array (double) | M doubles
-samples  | array (double) | M doubles
-samples  | array (double) | M doubles
-samples  | array (double) | M doubles
-samples  | array (double) | M doubles
-samples  | array (double) | M doubles
-samples  | array (double) | M doubles
+number of windows in *TestBuffer* | /functions/main/FD_analysis.m | KK
+data scaling parameter  | /functions/main/FD_analysis.m | ds
+Initial $u$ value before search  | /functions/main/threshold2.m | c
+non spike ratio *R* thresholds | /functions/main/ratiojudge.m| -
+exponential search base number   | /functions/main/StateTrans.m| searchD
+number of linear scanning intervals  | /functions/main/StateTrans.m | IndMax
+ratio value for judging *C_1, C_2* conditions | /functions/main/SCSASpikeDetect.m| ThK, ThN
+SCSA *C_1 , C_2* conditions thesholds  | /functions/main/SCSASpikeDetect.m | Ts1, Ts2
+maximum sample length in a region |- | -
 
 #### Automatic detection function and utilities
 You can extract a SCSA feature vector from a certain PPG segment (i.e. a heart beat interval) with the following command.
