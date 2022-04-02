@@ -74,7 +74,7 @@ Parameter Description | Variable Location    | Variable Name
 ----  | ----------------- | ----------
 number of windows in *TestBuffer* | /functions/main/FD_analysis.m | KK
 data scaling parameter  | /functions/main/FD_analysis.m | ds
-Initial $u$ value before search  | /functions/main/threshold2.m | c
+Initial *u* value before search  | /functions/main/threshold2.m | c
 non spike ratio *R* thresholds | /functions/main/ratiojudge.m| -
 exponential search base number   | /functions/main/StateTrans.m| searchD
 number of linear scanning intervals  | /functions/main/StateTrans.m | IndMax
