@@ -66,6 +66,17 @@ The repo provides a wide variety of methods and utilities which can help researc
     - Pre-defined system parameters
     - Automatic detection function 
     - Utilities
+- Other methods
+    - SNEO
+    - Improved SNEO by SSA
+    - FD
+    - Spike Detection using FD and SSA
+    - Spike detection using standard deviation and EMD
+- Feature extraction methods
+    - SCSA eplilepsy detection
+    - QuPWM feature extraction method
+    - Common spatial patterns and linear discriminant analysis
+    - Amplitude Thresholding and Dynamic Time Warping
 
 ### Our method 
 Both pre-defined system parameters and automatic detection function and utilities are described. The first subsection is listed for research purposes with some system parameters shown in variable location and variable name allowing easier tunning process. Then usages of automatic detection function and utilities are covered for implementations.
