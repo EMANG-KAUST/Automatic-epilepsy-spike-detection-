@@ -1,12 +1,9 @@
-function [R] = FDM(D)
+function [R] = FDM(data,framesize,step,chan_index)
 %Implementation of FD module only 
 % Input is the data matrix with rows containing all the channels 
 % Parameters can be adjusted in the constant definitions section.
 
 %%%%%%%%%%%%%%%% constant definitions %%%%%%%%%%%%%%%%%%%%%%%%%%
- step=100;
- framesize=200;
- chan_index=[1,306];
  coefficient=1;
 %%%%%%%%%%%%%%%% constant definitions %%%%%%%%%%%%%%%%%%%%%%%%%%
 
