@@ -93,6 +93,8 @@ ratio value for judging *C_1, C_2* conditions | /functions/main/SCSASpikeDetect.
 SCSA *C_1 , C_2* conditions thesholds  | /functions/main/SCSASpikeDetect.m | Ts1, Ts2
 maximum sample length in a region |esRegionsExtract.m | NL
 number of channels in data |esRegionsExtract.m| chan_index
+window sample size |esRegionsExtract.m| frame_size
+moving window step size |esRegionsExtract.m| step
 
 #### Automatic detection function
 This section provides implementation of **algorithm 3** in our paper. You can get extracted regions *R_F* from an input MEG/EEG patient data D (D is matrix with each row containing channel waveforms) simply by running the following command.
