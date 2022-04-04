@@ -7,6 +7,11 @@ RF=[];
 % framesize=200;
 fprintf('\n################ Initiate SCSA analysis ################\n\n')
 Nregion=size(regions,1);
+
+while regions(1,1)<=3*framesize
+    regions(1,:)=[];%eliminate corner case
+end
+
 for k=1:Nregion %start iterating regions
     sta=regions(k,1);
     sto=regions(k,2);

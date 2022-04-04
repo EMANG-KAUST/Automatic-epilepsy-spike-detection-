@@ -30,22 +30,22 @@ for j=chan_index(1):chan_index(2)
 Nratio(end+1)=Nhc/Nh;
 Kratio(end+1)=eig_vc(1,1)/eig_v(1,1);
 end
-if GTCompare(GT,[sta,sto])
-   fprintf('\n################  here is the spike ################\n\n')
-end 
+% if GTCompare(GT,[sta,sto])
+%    fprintf('\n################  here is the spike ################\n\n')
+% end 
 
     if length(find(Kratio>ThK|Kratio<(1/ThK)))>=Ts1
         ttt=Nratio(find(Kratio>ThK));
         if length(find(ttt<(1/ThN)|ttt>ThN))>=Ts2
             isSpike=1;
-            fprintf('\n#  potential events logged! #\n')
+%             fprintf('\n#  potential events logged! #\n')
             return 
         end
 
         
     end
     
-fprintf('\n#  potential events eliminated! #\n')
+% fprintf('\n#  potential events eliminated! #\n')
 
 
 end
